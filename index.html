@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <title>QB iptables rules Generator</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <div class="container" id="application">
+        <div class="col col-xl-12">
+            <div class="m-5" style="text-align: center;"><h1>QB iptables rules generator</h1></div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="col-md text-left">Input :</p>
+            </div>
+        </div>
+        <form>
+            <div class="form-group row">
+                <div class="col-md">
+                    <select class="form-control custom-select">
+                        <option selected> --- </option>
+                        <option value="1">INPUT</option>
+                        <option value="2">FORWARD</option>
+                        <option value="3">OUTPUT</option>
+                        <option value="4">PREROUTING</option>
+                        <option value="5">POSTROUTING</option>
+                    </select>
+                </div>
+                <div class="col-md">
+                    <select class="form-control custom-select">
+                        <option selected> --- </option>
+                        <option value="1">IP</option>
+                        <option value="2">TCP</option>
+                        <option value="3">UDP</option>
+                        <option value="4">ICMP</option>
+                    </select>
+                </div>
+                <div class="col-md rounded-left">
+                    <input placeholder="IP SRC" class="form-control"/>
+                </div>
+                <div class="col-md rounded-right">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">:</div>
+                        </div>
+                        <input placeholder="SRC PORT" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <input placeholder="IP DST" class="form-control"/>
+                </div>
+                <div class="col-md">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">:</div>
+                        </div>
+                        <input placeholder="DST PORT" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <select class="form-control custom-select">
+                        <option selected> --- </option>
+                        <option value="1">DROP</option>
+                        <option value="2">REJECT</option>
+                        <option value="3">ACCEPT</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col">
+                <p class="col-md text-left">Output :</p>
+            </div>
+        </div>
+        <form>
+            <div class="row form-group">
+                <div class="col">
+                    <samp placeholder="Copy here." class="form-control mb-5">{{ outputrule }}</samp>
+                </div>
+            </div>
+        </form>
+    </div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var application = new Vue ({
+        el: '#application',
+        data: {
+            outputrule: "test"
+        }
+    })
+
+</script>
+</body>
+</html>
